@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    min-width: 280px;
+    background: linear-gradient(35deg, #ff94b9ad, #f1c7ff0d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    position: relative;
+    transform: skewY(-25deg);
+}
+
+@media (max-width: 300px) {
+    ul {
+        transform: skewY(-15deg) skewX(-30deg);
+    }
+}
+
+ul li {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    list-style: none;
+    transform: translate(calc(var(--i)*40px), calc(var(--i)*40px));
+    width: clamp(60px, 15vw, 100px);
+    padding: clamp(5px, 1vw, 10px);
+    background: #383838;
+    transition: 0.5s;
+}
+
+ul li:hover {
+    top: -35px;
+    background: var(--clr);
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 40px;
+    height: 100%;
+    background-color: #2f2f30;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.5s;
+}
+
+ul li:hover::before {
+    background: var(--clr);
+    filter: brightness(0.8);
+}
+
+ul li::after {
+    content: attr(data-text);
+    position: absolute;
+    top: -39px;
+    left: 0;
+    width: 101%;
+    height: 40px;
+    background: #3e3e3e;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    box-shadow: -120px 120px 20px rgba(0,0,0,0.25);
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: clamp(5px, 1vw, 15px);
+    color: #c3c3c3;
+    font-size: clamp(11px, 3vw, 16px);
+}
+
+ul li:hover::after {
+    filter: brightness(0.9);
+    background: var(--clr);
+    color: #fff;
+    box-shadow: -170px 170px 20px rgba(0,0,0,0.25);
+}
+
+ul li div {
+    font-size: clamp(11px, 3vw, 16px);
+    color: transparent;
+    display: block;
+    transition: 0.5s;
+}
+
+ul li:hover div {
+    color: #fff;
+}
+
+ul li div span {
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 40px;
+    text-align: center;
+    height: 100%;
+    color: #a7a7a7;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(15px,3vw,18px);
+}
+
+ul li:hover div span {
+    color: #fff;
+
+}
+
